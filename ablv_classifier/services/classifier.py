@@ -9,14 +9,14 @@ class TextClassifier:
         self.mapping_file  = FileUtil().read_type_mapping_file()
         self.entity_file =  FileUtil().read_entity_file()
         self.entities =  self.entity_file['Entity Type'].tolist()
+        self.mappings =  self.mapping_file['PII_Type'].tolist()
+        self.default_language = "en"
         self.similar_items = self.load_tarnsformers()
-    
-    
 
     def classfyText(self, text:str):
         results = self.analyzer.analyze(text=text,
                            entities=self.entities,
-                           language='en')
+                           language=self.default_language)
         if  results:
             return self.map_output(results)
         return  [] 
@@ -26,7 +26,6 @@ class TextClassifier:
             return value
 
     
-    #dict_keys(['Information_Type', 'PII_Type', 'Cluster_Membership_Type', 'NIST_Category', 'DHS_Category', 'HIPAA_Protected_Health_Information_Category', 'Risk_Level'])
     def process(self, df, score):
         list_of_elements = []
         dict = df.to_dict()
@@ -64,6 +63,6 @@ class TextClassifier:
     def load_tarnsformers(self):
         tranformer =   Transformer()
         model =  tranformer.load_model()
-        return tranformer.cosine_similarity(model, self.entities, self.mapping_file['PII_Type'].tolist())
+        return tranformer.cosine_similarity(model, self.entities, self.mappings)
 
 
