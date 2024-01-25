@@ -3,7 +3,20 @@ from ablv_classifier.utils.file_util import  FileUtil
 from ablv_classifier.transformer.sentance_transfomer import Transformer
 
 class TextClassifier:
+    """
+    This class holds all the wrapper logic for Text classifications ...
 
+    Attributes:
+        analyzer : Presidio analyzer object
+        mapping_file (Pandas dataframe): Mapping file loaded as Pandas dataframe
+        entity_file (Pandas dataframe): Entity(used in presidio analyzer) file loaded as Pandas dataframe
+        mappings (List[string]) : List of entities
+        default_language (string) : Default language for classification
+        similar_items   : A list of similar items for a give entity
+    Methods:
+        classfyText(self, arg1) -> list[dict]: A list of extracted classfication values
+        
+    """
     def __init__(self) -> None:
         self.analyzer = AnalyzerEngine()
         self.mapping_file  = FileUtil().read_type_mapping_file()
