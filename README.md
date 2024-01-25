@@ -6,13 +6,7 @@
 
  ## Key Features
 
-Implements various text classification techniques, such as:
-Traditional machine learning algorithms (e.g., Naive Bayes, Support Vector Machines, Random Forest)
-Deep learning models (e.g., Convolutional Neural Networks, Recurrent Neural Networks, Transformers)
-Capable of handling diverse text input formats, including plain text, HTML, and JSON.
-Provides options for pre-trained word embeddings or training custom embeddings.
-Offers evaluation metrics to assess model performance.
-Can be integrated into larger NLP pipelines.
+    Classify texts
  ## Getting Started
 
 Prerequisites:
