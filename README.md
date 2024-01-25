@@ -1,2 +1,2 @@
-# Text claiifier
+# Text classifier engine
 
