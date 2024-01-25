@@ -1,1 +1,1 @@
-include ablv_classifier/data/v1/*.csv
+recursive-include ablv_classifier/data/v1/*.csv
