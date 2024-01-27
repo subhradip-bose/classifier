@@ -26,13 +26,13 @@ class TextClassifier:
         self.default_language = "en"
         self.similar_items = self.load_tarnsformers()
 
-    def classfyText(self, text:str):
+    def classfyText(self, text:str) :
         results = self.analyzer.analyze(text=text,
                            entities=self.entities,
                            language=self.default_language)
         if  results:
             return self.map_output(results)
-        return  [] 
+        return  {} 
     
     def extract_value(self, dict: {}):
         for value in dict.values():
